@@ -1,0 +1,21 @@
+.project-container {
+  height: auto;
+  aspect-ratio: 16/9;
+  padding: 1rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(6px);
+  background-color: rgba(48, 48, 48, 0.85);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 1);
+  flex: 1/2;
+
+  border: 1px solid rgb(63, 63, 63);
+}
+.project-container.full {
+  min-width: 30rem;
+  flex: 1;
+}
+
+.project-container.small {
+  min-width: 9rem;
+  flex: 1/3;
+}
