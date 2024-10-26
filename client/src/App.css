@@ -23,7 +23,7 @@
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
-  min-height: calc(100vh - 3.5rem);
+  min-height: 100vh;
 }
 
 h1 {
@@ -61,7 +61,7 @@ h2 {
   animation: bob-up-down 1500ms infinite alternate;
 }
 .story {
-  max-width: 48rem;
+  max-width: 38rem;
 }
 .text-center {
   text-align: center;
@@ -70,13 +70,13 @@ h2 {
   justify-content: center;
   align-items: center;
 }
-.projects-container {
+.logos-container {
+  margin-top: 1rem;
+  gap: 1rem;
   display: flex;
   flex-direction: row;
+  font-size: 2rem;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  max-width: 36.5rem;
-  margin-top: 1rem;
+  max-width: 38rem;
 }
