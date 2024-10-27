@@ -14,8 +14,6 @@ import {
   SiJavascript,
   SiJsonwebtokens,
   SiLinux,
-  SiLinuxcontainers,
-  SiLinuxserver,
   SiMongodb,
   SiMysql,
   SiNodedotjs,

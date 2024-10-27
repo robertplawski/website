@@ -1,13 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Header.css";
 import { Navigation } from "./nav/Navigation";
-import {
-  FaEnvelope,
-  FaGithub,
-  FaBluesky,
-  FaSun,
-  FaMoon,
-} from "react-icons/fa6";
+import { FaEnvelope, FaGithub, FaBluesky } from "react-icons/fa6";
 
 export function Header() {
   const [scrollTop, setScrollTop] = useState(0);
