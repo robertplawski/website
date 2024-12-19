@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrolling Background Placeholder</title>
+  <style>
+    body{
+        overflow: hidden;
+    }
+    div {
+        position: absolute;
+        
+        width: 100vw;
+        height: 100vh;     
+        rotate:45deg;
+        scale:2;
+        background-image: linear-gradient(90deg,#0a0a0a, #1b1b1b, #0a0a0a,#0a0a0a, #0a0a0a, #0a0a0a);
+
+        background-size: cover;
+        animation: scroll-bg 5s linear infinite;
+    }
+    
+    @keyframes scroll-bg {
+      0% {
+        background-position-y: 0vh;
+        background-position-x: 0vw;
+      }
+      100% {
+        background-position-y: 100vh;
+        background-position-x: 100vw;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div>
+
+    </div>
+</body>
+</html>

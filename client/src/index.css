@@ -3,14 +3,27 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+@keyframes breathe {
+  0%, 100% {
+    background-size: 100%;
+  }
+  50% {
+    background-size: 200%;
+  }
+}
+
 html {
   scroll-behavior: smooth;
+  background-position: center;
   background: radial-gradient(
-    circle at 50% 50vh,
+    circle at 50vw 50vh,
     rgb(41, 41, 41) 10%,
     rgb(20, 20, 20) 90%
   );
+  animation: breathe 24s infinite ease-in-out;
 }
+
 :root {
   font-family: Source Code Pro, monospace;
   line-height: 1.5;

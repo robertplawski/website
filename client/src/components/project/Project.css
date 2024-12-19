@@ -51,8 +51,9 @@
 .project-thumbnail-container {
   position: relative;
 }
-.project-thumbnail-container > video {
+.project-thumbnail-container > video  {
   width: 100%;
+  height: auto;
   border-radius: 1rem;
   transition: opacity 300ms;
   cursor: pointer;
@@ -93,4 +94,26 @@
   .project-separator {
     display: none;
   }
+}
+
+.work-in-progress:hover > * {
+  filter: blur(0);
+}
+.work-in-progress > * {
+  filter: blur(10px) saturate(0.25) brightness(0.4);
+  user-select: none;
+  transition: filter 300ms;
+}
+.work-in-progress::after {
+  content: "Prace w toku";
+  font-size: larger;
+  position: absolute;
+  left: 50%;
+  opacity: 1;
+  translate: -50% 0%;
+  transition: opacity 300ms;
+  font-weight: 700;
+}
+.work-in-progress:hover::after {
+  opacity: 0;
 }

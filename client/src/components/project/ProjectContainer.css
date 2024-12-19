@@ -4,6 +4,55 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  margin-top: 1rem;
+  margin: 1rem 0rem;
   max-width: 48rem;
+}
+.coming-soon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: row;
+}
+.project-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.projects-header {
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  border-radius: 1rem;
+  backdrop-filter: blur(6px);
+  background-color: rgba(39, 39, 39, 0.85);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 1);
+  flex: 1;
+  min-width: 16rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgb(63, 63, 63);
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.projects-header > select {
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  border-radius: 1rem;
+  backdrop-filter: blur(6px);
+  background-color: rgba(39, 39, 39, 0.85);
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 1);
+
+  gap: 1rem;
+  min-width: 8rem;
+  padding: 0.5rem 0.5rem;
+  color: white;
+  font-size: inherit;
+  border: 1px solid rgb(63, 63, 63);
+  justify-content: space-between;
+  font-family: inherit;
 }

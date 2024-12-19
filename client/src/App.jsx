@@ -18,27 +18,31 @@ import {
   SiMysql,
   SiNodedotjs,
   SiNpm,
+  SiPostgresql,
   SiPostman,
   SiProxmox,
   SiPython,
   SiReact,
   SiSocketdotio,
   SiTailwindcss,
-  SiUbuntu,
   SiVim,
   SiVisualstudiocode,
   SiVuedotjs,
 } from "react-icons/si";
-import { TbBrandOauth } from "react-icons/tb";
+import { TbBrandOauth} from "react-icons/tb";
+import { PronunciationButton } from "./components/buttons/PronunciationButton.jsx";
 function App() {
   return (
     <>
-      <div className="main">
+      <main>
         <Header />
-        <div
+        <section
           style={{ height: "calc(100vh-3.5rem)" }}
           className="fullpage-container text-center"
         >
+          {/*<div className="ipa-container"><h3>(rˈɔbɛrt pwˈafski)</h3> 
+            <PronunciationButton/>
+          </div>*/}
           <h1>Robert Pławski</h1>
           <h2>Junior developer</h2>
           <div className="cta-container">
@@ -47,9 +51,9 @@ function App() {
               <p className="cta-arrow">↓</p>
             </a>
           </div>
-        </div>
-        <div id="about" className="fullpage-container">
-          <h2># Trochę o mnie!</h2>
+        </section>
+        <section id="about" className="fullpage-container">
+          <h2>Trochę o mnie!</h2>
           <p className="story">
             Z komputerami miałem styczność od urodzenia, jednak formalnie uczę
             się programowania od 2018 roku, kiedy na lekcjach informatyki w
@@ -61,7 +65,7 @@ function App() {
           <ul>
             <li> frontend: html, css, js, tailwindcss, react, vue </li>
             <li> backend: node js, express, socket.io, oauth, jwt, </li>
-            <li> bazy danych: mysql, mongodb </li>
+            <li> bazy danych: mysql, mongodb, postgresql </li>
             <li>devops: git, github, npm, cloudflare </li>
             <li> języki: javascript, python, c++ </li>
             <li>narzędzia: visual studio code, postman, vim </li>
@@ -82,6 +86,7 @@ function App() {
             <TbBrandOauth />
             <SiJsonwebtokens />
             <SiMysql />
+            <SiPostgresql />
             <SiMongodb />
             <SiGit />
             <SiGithub />
@@ -94,19 +99,18 @@ function App() {
             <SiVim />
             <SiLinux />
             <SiDebian />
-            <SiUbuntu />
             <SiProxmox />
           </div>
-        </div>
+        </section>
 
-        <div id="portfolio" className="fullpage-container">
-          <h2># Portfolio</h2>
+        <section id="portfolio" className="fullpage-container">
+          <h2>Portfolio</h2>
           <p>Zobacz praktycznie, jak wyglądają moje projekty!</p>
           <ProjectContainer />
-        </div>
+        </section>
 
         <Footer />
-      </div>
+      </main>
     </>
   );
 }
