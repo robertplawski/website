@@ -1,12 +1,14 @@
 import "./Project.css";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { FaPlay, FaGithub, FaShare } from "react-icons/fa6";
 import pingPongVideo from "../../assets/projects/pingPongVideo.webm";
 import Markdown from "react-markdown";
+import {InternationalizationContext} from "../contexts/InternationalizationContext.jsx";
+
 export function Project({
-  title = { pl: "Lorem ipsum" },
-  description = { pl: "Lorem ipsum dolor sit amet consetetur adisping elit." },
-  cta = { pl: "Lorem ipsum!" },
+  title = { "pl-PL": "Lorem ipsum" },
+  description = { "pl-PL": "Lorem ipsum dolor sit amet consetetur adisping elit." },
+  cta = { "pl-PL": "Lorem ipsum!" },
   timestamp = 0,
   showFull = false,
   tags = [],
@@ -21,6 +23,7 @@ export function Project({
   // eslint-disable-next-line no-unused-vars
   const [playbackRate, setPlaybackRate] = useState(thumbnailVideoPlaybackRate);
   const videoRef = useRef(null);
+  const  {language}= useContext(InternationalizationContext);
 
   useEffect(() => {
     if (videoRef.current) {
@@ -35,8 +38,8 @@ export function Project({
       }`}
       style={showFull ? { minWidth: "100%" } : {}}
     >
-      <Markdown className="project-title">{title.pl}</Markdown>
-      <Markdown className="project-description">{description.pl}</Markdown>
+      <Markdown className="project-title">{title[language]}</Markdown>
+      <Markdown className="project-description">{description[language]}</Markdown>
       {(thumbnailVideoSrc) && (
         <a href={demoUrl ? demoUrl : ""}>
           <div className="project-thumbnail-container">
@@ -49,7 +52,7 @@ export function Project({
               ref={videoRef}
             />
             <div className="project-thumbnail-overlay">
-              <Markdown>{cta.pl}</Markdown>
+              <Markdown>{cta[language]}</Markdown>
             </div>
           </div>
         </a>
@@ -63,12 +66,12 @@ export function Project({
         <div className="project-buttons">
           {customButtons && customButtons}
           {demoUrl && (
-            <a aria-label={title.pl + " live demo"} href={demoUrl}>
+            <a aria-label={title[language] + " live demo"} href={demoUrl}>
               <FaPlay size={18} />
             </a>
           )}
           {repositoryUrl && (
-            <a aria-label={title.pl + " repository"} href={repositoryUrl}>
+            <a aria-label={title[language] + " repository"} href={repositoryUrl}>
               <FaGithub size={18} />
             </a>
           )}

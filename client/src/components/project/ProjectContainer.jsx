@@ -16,29 +16,18 @@ import placeholderVideo from "../../assets/projects/placeholder.webm";
 import cardGameVideo from "../../assets/projects/cardGameVideo.webm";
 import pingPongVideo from "../../assets/projects/pingPongVideo.webm";
 import { FaFilter } from "react-icons/fa6";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { InternationalizationContext } from "../contexts/InternationalizationContext.jsx";
 
-const localeCompare = (a,b,locale) => a[locale].localeCompare(b[locale],locale);
-
-const FILTERS = {
-  'all': ()=>true,
-  'finished': (project)=>!project.workInProgress,
-  'work-in-progress': (project)=>project.workInProgress
-}
-
-const SORTERS = {
-  'default': (a,b) => 0,
-  'latest': (a, b) => a.timestamp < b.timestamp ? 1 :  -1 ,
-  'oldest' : (a, b) => a.timestamp > b.timestamp ? 1 :  -1 ,
-  'alphabetically-ascending':  (a, b) =>  localeCompare(a.title,b.title,"pl"),
-  'alphabetically-descending' : (a, b ) => localeCompare(b.title,a.title,"pl") ,
-}
 
 export function ProjectContainer() {
+  const {lookup:l,language,DEFAULT_LANGUAGE} = useContext(InternationalizationContext);
+
   const showcasedProject =   {
-    title: { pl: "robertplawski.pl" },
+    title: { "pl-PL": "robertplawski.pl","en-US":"robertplawski.pl" },
     description: {
-      pl: "**To ta strona, którą właśnie oglądasz.** Ta strona jest zrobiona w PERN, czyli PostgreSQL, Express, React i Nodejs. Strona jest hostowana na domowym serwerze w kontenerze lxc oraz korzysta z cloudflare dns.",
+      "pl-PL": "**To ta strona, którą właśnie oglądasz.** Ta strona jest zrobiona w PERN, czyli PostgreSQL, Express, React i Nodejs. Strona jest hostowana na domowym serwerze w kontenerze LXC oraz korzysta z Cloudflare DNS.",
+      "en-US": "**This is the page you are currently viewing.** This page is built with PERN, which stands for PostgreSQL, Express, React and Nodejs. The page is hosted on a home server in an LXC container and uses Cloudflare DNS."
     },
     showFull: true,
     tags: [
@@ -49,18 +38,19 @@ export function ProjectContainer() {
       <SiProxmox size={20} key={5} />,
       <SiCloudflare size={20} key={7} />,
     ],
-    customButtons: <p style={{ fontWeight: "bold" }}>Jesteś tutaj!</p>,
+    customButtons: <p style={{ fontWeight: "bold" }}>{l`you-are-here`}</p>,
     repositoryUrl: "https://github.com/robertplawski/website",
   }
   const projects = [
   
     {
-      title: { pl: "NO! Gra karciana" },
-      cta: { pl: "Kliknij tutaj aby zagrać!" },
+      title: { "pl-PL": "NO! Gra karciana", "en-US": "NO! Card game" },
+      cta: { "pl-PL": "Kliknij tutaj aby zagrać!", "en-US": "Click here to play!" },
       thumbnailVideoSrc: cardGameVideo,
       thumbnailVideoPlaybackRate: 1.2,
       description: {
-        pl: "Zagraj z swoimi przyjaciółmi, gra bazowana na popularnej grze UNO. ",
+        "pl-PL": "Zagraj z swoimi przyjaciółmi, gra bazowana na popularnej grze UNO. ",
+        "en-US": "Play a card game with your friends, game based on popular UNO card game",
       },
       repositoryUrl: "https://github.com/robertplawski/a-card-game",
       demoUrl: "https://play-no-card-game.robertplawski.pl/",
@@ -71,12 +61,13 @@ export function ProjectContainer() {
       timestamp: 1690161989000,
     },
     {
-      title: { pl: "Ping-Pong" },
+      title: { "pl-PL": "Ping-Pong", "en-US":"Ping-Pong" },
       thumbnailVideoPlaybackRate: 2,
       thumbnailVideoSrc: pingPongVideo,
-      cta: { pl: "Zagraj już teraz!" },
+      cta: { "pl-PL": "Zagraj już teraz!", "en-US":"Play now!" },
       description: {
-        pl: "Prosta gra pong! Graj z komputerem, albo ze znajomymi! ",
+        "pl-PL": "Prosta gra pong! Graj z komputerem, albo ze znajomymi! ",
+        "en-US":  "A simple ping pong game. Play against the computer or friends!" ,
       },
       timestamp: 1685397600000,
       tags: [
@@ -88,12 +79,13 @@ export function ProjectContainer() {
       demoUrl: "https://robertplawski.github.io/ping-pong/",
     },
     {
-      title: { pl: "Koło fortuny [WIP]" },
-      cta: { pl: "Kliknij tutaj aby zagrać!" },
+      title: { "pl-PL": "Koło fortuny [WIP]",'en-US':"Wheel of fortune [WIP]" },
+      cta: { "pl-PL": "Kliknij tutaj aby zagrać!" },
       thumbnailVideoPlaybackRate: 1.2,
       thumbnailVideoSrc:placeholderVideo,
       description: {
-        pl: "Zagraj z swoimi przyjaciółmi, gra bazowana na sławnym teleturnieju.",
+        "pl-PL": "Zagraj z swoimi przyjaciółmi, gra bazowana na sławnym teleturnieju.",
+        "en-US":   "Play with your friends, game based on a fameous gameshow",
       },
       repositoryUrl: "https://github.com/robertplawski/kolo-fortuny",
       /*demoUrl: "https://play-no-card-game.robertplawski.pl/",*/
@@ -106,12 +98,13 @@ export function ProjectContainer() {
       timestamp: 1730553655000,
     },
     {
-      title: { pl: "Kółko i krzyżyk [WIP]" },
-      cta: { pl: "Kliknij tutaj aby zagrać!" },
+      title: { "pl-PL": "Kółko i krzyżyk [WIP]", "en-US":"Tic-tac-toe [WIP]" },
+      cta: { "pl-PL": "Kliknij tutaj aby zagrać!", "en-US":"Click here to play!" },
       thumbnailVideoPlaybackRate: 1.2,
       thumbnailVideoSrc:placeholderVideo,
       description: {
-        pl: "Klasyk gier podwórkowych! Graj z algorytmem na różnym poziomie. ",
+        "pl-PL": "Klasyk gier podwórkowych! Graj z algorytmem na różnym poziomie. ",
+        "en-US": "A childhood classic! Play with an algorithm at different levels."
       },
       /*repositoryUrl: "https://github.com/robertplawski/kolo-fortuny",
       demoUrl: "https://play-no-card-game.robertplawski.pl/",*/
@@ -121,11 +114,12 @@ export function ProjectContainer() {
       timestamp: 1734614417000,
     },
     {
-      title: { pl: "Kajet [WIP]" },
-      cta: { pl: "Kliknij tutaj aby zagrać!" },
+      title: { "pl-PL": "Kajet [WIP]", "en-US":"Kajet (notebook) [WIP]" },
+      cta: { "pl-PL": "Kliknij tutaj aby zagrać!" },
       thumbnailVideoPlaybackRate: 1.2,
       description: {
-        pl: "Ta aplikacja zwiększy twoją produktywność. Aplikacja pozwala na tworzenie notatek, czy list.  ",
+        "pl-PL": "Ta aplikacja zwiększy twoją produktywność. Aplikacja pozwala na tworzenie notatek, czy list.  ",
+        "en-US":"This application will increase your productivity. Application allows to create notes or lists."
       },
       /*repositoryUrl: "https://github.com/robertplawski/kolo-fortuny",
       demoUrl: "https://play-no-card-game.robertplawski.pl/",*/
@@ -144,25 +138,42 @@ export function ProjectContainer() {
   const [sort, setSort] = useState("default"); 
   const [filter, setFilter] = useState("all"); 
 
+
+
+  const localeCompare = (a,b) => a.localeCompare(b,language);
+
+  const FILTERS = {
+    'all': ()=>true,
+    'finished': (project)=>!project.workInProgress,
+    'work-in-progress': (project)=>project.workInProgress
+  }
+  
+  const SORTERS = {
+    'default': (a,b) => 0,
+    'latest': (a, b) => a.timestamp < b.timestamp ? 1 :  -1 ,
+    'oldest' : (a, b) => a.timestamp > b.timestamp ? 1 :  -1 ,
+    'alphabetically-ascending':  (a, b) =>  localeCompare(a.title[language] || a.title[DEFAULT_LANGUAGE] ,b.title[language] || b.title[DEFAULT_LANGUAGE]),
+    'alphabetically-descending' : (a, b) => localeCompare(b.title[language] || b.title[DEFAULT_LANGUAGE],a.title[language] || a.title[DEFAULT_LANGUAGE]) ,
+  }
   return (
     <div>
       
       <div className="projects-header">
         <FaFilter />
-        <b>Filtry i sortowanie</b>
+        <b>{l`filter-and-sorting`}</b>
         <div className="full-flex"></div>
         <select onChange={({target})=>setSort(target.value)}>
-          <option value='default'>Domyślne</option>
-          <option value='latest'>Od najnowszych</option>
-          <option value='oldest'>Od najstarszych</option>
-          <option value='alphabetically-ascending'>Od A do Z</option>
-          <option value='alphabetically-descending'>Od Z do A</option>
+          <option value='default'>{l`default`}</option>
+          <option value='latest'>{l`latest`}</option>
+          <option value='oldest'>{l`oldest`}</option>
+          <option value='alphabetically-ascending'>{l`alphabetically-ascending`}</option>
+          <option value='alphabetically-descending'>{l`alphabetically-descending`}</option>
         </select>
 
         <select onChange={({target})=>setFilter(target.value)}>
-          <option value='all'>Wszystkie</option>
-          <option value='finished'>Tylko ukończone</option>
-          <option value='work-in-progress'>Tylko nieukończone</option>
+          <option value='all'>{l`all`}</option>
+          <option value='finished'>{l`finished`}</option>
+          <option value='work-in-progress'>{l`work-in-progress`}</option>
         </select>
       </div>
       <div className="projects-container">
@@ -176,7 +187,7 @@ export function ProjectContainer() {
       <div className="project-footer">
         <br />
         <a href="https://robertplawski.github.io/">
-          Więcej projektów na <b>https://robertplawski.github.io/</b>
+          {l`more-projects-at`} <b>https://robertplawski.github.io/</b>
         </a>
       </div>
     </div>

@@ -15,6 +15,7 @@ header {
   border-bottom-right-radius: 1rem;
   z-index: 10;
   border-bottom-left-radius: 1rem;
+  
 }
 
 header.floating {
@@ -28,7 +29,22 @@ header > .header-side {
   gap: 1rem;
   display: flex;
   flex-direction: row;
-  align-items: start;
+  
+  align-items: center;
   justify-content: center;
   height: 100%;
+}
+.header-side>a{
+  display: flex;
+  gap:1rem;
+  align-items: center;
+}
+.contact-me{
+  display: flex;
+  flex-direction: column;
+  gap:0.25rem;
+  justify-content: space-around;
+}
+.contact-me>*{
+  padding: 0.5rem;
 }

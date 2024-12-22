@@ -96,7 +96,7 @@
   }
 }
 
-.work-in-progress:hover > * {
+.work-in-progress:hover > *, .work-in-progress:focus-within  {
   filter: blur(0);
 }
 .work-in-progress > * {
@@ -105,7 +105,7 @@
   transition: filter 300ms;
 }
 .work-in-progress::after {
-  content: "Prace w toku";
+  content: "[WIP]";
   font-size: larger;
   position: absolute;
   left: 50%;

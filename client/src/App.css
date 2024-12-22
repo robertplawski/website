@@ -91,3 +91,20 @@ main {
   justify-content: center;
   align-items: center;
 }
+.no-appearance{
+  background-color: transparent;
+  cursor:pointer;border:0;padding:0.2rem;border-radius:10px;
+}
+.story{
+max-width: 38rem;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.basic-row{
+  display: flex;
+  flex-direction: row;
+  gap:1rem;
+}

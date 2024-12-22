@@ -13,7 +13,7 @@ export function PronunciationButton(){
       }
     };
 
-    return <button style={{cursor:"pointer",border:0,padding:'0.2rem',borderRadius:'10px'}} onClick={()=>playAudio()}>
+    return <button className='no-appearance' onClick={()=>playAudio()}>
         <PiSpeakerHighFill size={25}/>
     </button> 
     

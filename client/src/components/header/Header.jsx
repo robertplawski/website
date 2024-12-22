@@ -1,9 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import "./Header.css";
 import { Navigation } from "./nav/Navigation";
-import { FaEnvelope, FaGithub, FaBluesky, FaItchIo } from "react-icons/fa6";
+import { FaEnvelope, FaGithub, FaBluesky, FaItchIo, FaPhone } from "react-icons/fa6";
+import { InternationalizationButton } from "../buttons/InternationalizationButton";
+import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
+import { ModalContext } from "../contexts/ModalContext";
+
+import Markdown from "react-markdown";
+import { InternationalizationContext } from "../contexts/InternationalizationContext";
 
 export function Header() {
+  const {lookup:l} = useContext(InternationalizationContext);
+  const {openModal} = useContext(ModalContext);
+  const spawnButtonRef = useRef();
   const [scrollTop, setScrollTop] = useState(0);
 
   useEffect(() => {
@@ -30,18 +39,35 @@ export function Header() {
       </div>
       <Navigation />
       <div className="header-side">
-        <a href="mailto:dev@robertplawski.pl" aria-label="Email contact">
-          <FaEnvelope size={24} />
-        </a>
-        <a href="https://github.com/robertplawski" aria-label="Github account">
-          <FaGithub size={24} />
-        </a>
-        <a
-          href="https://bsky.app/profile/robertplawski.pl"
-          aria-label="Bluesky account"
-        >
-          <FaBluesky size={24} />
-        </a>
+        <InternationalizationButton/>
+        <button ref={spawnButtonRef} className="no-appearance" aria-label="Contact me" onClick={()=>openModal(
+              <><h2><b>{l`contact-me`}</b></h2>
+        <div className="contact-me">
+      
+          <a href="mailto:dev@robertplawski.pl" className="basic-row" aria-label="Email contact">
+            <FaEnvelope size={24} />
+            <p>Email </p>
+          </a>
+          <a href="https://github.com/robertplawski" className="basic-row" aria-label="Github account">
+            <FaGithub size={24} />
+            <p>{l`github-account`}</p>
+          </a>
+          <a
+            href="https://bsky.app/profile/robertplawski.pl"
+            aria-label="Bluesky account"
+            className="basic-row"
+          >
+            <FaBluesky size={24} />
+            <p>Bluesky</p>
+          </a>
+        </div></>
+          , spawnButtonRef.current
+          )}>
+
+        <IoChatbubbleEllipsesOutline size={24} />
+        </button>
+        {/*
+     >*/}
       </div>
     </header>
   );
