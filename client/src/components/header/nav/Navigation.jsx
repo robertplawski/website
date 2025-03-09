@@ -3,7 +3,7 @@ import "../nav/Navigation.css";
 import { InternationalizationContext } from "../../contexts/InternationalizationContext";
 
 export function Navigation() {
-  const {lookup:l} = useContext(InternationalizationContext);
+  const { lookup: l } = useContext(InternationalizationContext);
 
   return (
     <>
@@ -13,6 +13,9 @@ export function Navigation() {
         </a>
         <a href="#portfolio" aria-label="Porfolio section">
           <p>{l`portfolio`}</p>
+        </a>
+        <a href="#blog" aria-label="Blog section">
+          <p>Blog</p>
         </a>
       </nav>
     </>
